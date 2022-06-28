@@ -4,10 +4,14 @@ const dateFormat = require('../utils/dateFormat');
 const PizzaSchema = new Schema(
     {
         pizzaName: {
-            type: String
+            type: String,
+            required: 'You must provide the pizza a name!',
+            trim: true
         },
         createdBy: {
-            type: String
+            type: String,
+            required: 'You need to provide your name!',
+            trim: true
         },
         createdAt: {
             type: Date,
@@ -16,6 +20,8 @@ const PizzaSchema = new Schema(
         },
         size: {
             type: String,
+            required: true,
+            enum: ['Personal', 'Small', 'Medium', 'Large'],
             default: 'Large'
         },
         toppings : [],
